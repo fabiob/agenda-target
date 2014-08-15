@@ -5,7 +5,6 @@ Esta aplicação é uma agenda de contatos, utilizada pelo curso de jQuery da Ta
 ## Instalação
 
     $ npm install
-    $ bower install
 
 ## Rodando o servidor server
 
