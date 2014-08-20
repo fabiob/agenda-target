@@ -1,6 +1,8 @@
 // aqui é o "boot" da nossa aplicação, onde são carregados os dados iniciais e atribuidos os eventos.
 
 $(document).ready(function() {
+  montaMenu();
+  
   // ao carregar o documento, monta a tabela inicial
   atualizaLista(true);
   
@@ -122,6 +124,14 @@ $(document).ready(function() {
       });
   });
 });
+
+function montaMenu() {
+  var menu = $('#menu');
+  menu.load('menu.html', function() {
+    $(this).find('.navbar-brand').text(menu.data('title'));
+    $(this).find("a[href$='" + location.pathname + "']").addClass('active');
+  });
+}
 
 function atualizaLista(primeiraVez) {
   carregaLista(function(dados) {

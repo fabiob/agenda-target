@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <title>Exemplo de Carrinho de Compras</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/ui-lightness/jquery-ui.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+
+    <link rel="stylesheet" href="/css/layout.css">
+    <script src="js/app.js"></script>
+    <script src="js/ui.js"></script>
+  </head>
+  <body>
+    <div id="menu" data-title="Carrinho de Compras"></div>
+
+    <div class="container">
+      <div class="page-header">
+        <h1>Carrinho de Compras</h1>
+      </div>
+      
+      <style>
+        .produto { width: 100px; height: 100px; padding-top: 30px; text-align: center; 
+                   float: left; margin-left: 5px; z-index: 1000; }
+      </style>
+      
+      <form>
+        <div class="row">
+          <div class="col-sm-6" id="lista-produtos">
+            <h3>Produtos</h3>
+            <div class="produto thumbnail" data-id="1">Produto 1 <input type="hidden" name="produto" value="1"></div>
+            <div class="produto thumbnail" data-id="2">Produto 2 <input type="hidden" name="produto" value="2"></div>
+            <div class="produto thumbnail" data-id="3">Produto 3 <input type="hidden" name="produto" value="3"></div>
+            <div class="produto thumbnail" data-id="4">Produto 4 <input type="hidden" name="produto" value="4"></div>
+            <div class="produto thumbnail" data-id="5">Produto 5 <input type="hidden" name="produto" value="5"></div>
+          </div>
+          <div class="col-sm-6">
+            <h3>Cesta de Compras</h3>
+            Arraste seus itens para cá.
+            <div class="well" style="height: 200px" id="cesta-compras">
+              
+            </div>
+          </div>
+        </div>
+        <input type="submit" value="Comprar" class="btn btn-primary">
+      </form>
+    </div>
+
+    <div class="footer">
+      <div class="container">
+        <p class="text-muted">Parte integrante do curso de jQuery da TargetTrust.</p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="pt">
   <head>
-    <title>Exemplos jQuery</title>
+    <title>Exemplo de Barra de Progresso</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/ui-lightness/jquery-ui.css">
@@ -9,22 +9,32 @@
 
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
-    <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
-    <script src="//cdn.jsdelivr.net/jsrender/1.0pre35/jsrender.min.js"></script>
-    
+
     <link rel="stylesheet" href="/css/layout.css">
     <script src="js/app.js"></script>
     <script src="js/ui.js"></script>
   </head>
   <body>
-    <div id="menu" data-title="Exemplos"></div>
+    <div id="menu" data-title="Barra de Progresso"></div>
 
     <div class="container">
       <div class="page-header">
-        <h1>Exemplos da Aula de jQuery</h1>
+        <h1>Barra de Progresso</h1>
       </div>
       
-      <p>Selecione um dos exemplos no menu acima.</p>
+      <div class="row">
+        <div class="col-sm-4">
+          <a href='#incr' class="btn btn-info">Incrementar</a>
+        </div>
+        
+        <div class="col-sm-8">
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+              <span>0%</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="footer">
