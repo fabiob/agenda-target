@@ -35,6 +35,51 @@
       <div class="page-header">
         <h1>Lista de Contatos</h1>
       </div>
+      
+      <div class="row">
+        <div class="col-sm-4">
+          <a href='#incr' class="btn btn-info">Incrementar</a>
+        </div>
+        
+        <div class="col-sm-8">
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+              <span>0%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <hr>
+      
+      <style>
+        .produto { width: 100px; height: 100px; padding-top: 30px; text-align: center; 
+                   float: left; margin-left: 5px; z-index: 1000; }
+      </style>
+      
+      <form>
+        <div class="row">
+          <div class="col-sm-6" id="lista-produtos">
+            <h3>Produtos</h3>
+            <div class="produto thumbnail" data-id="1">Produto 1 <input type="hidden" name="produto" value="1"></div>
+            <div class="produto thumbnail" data-id="2">Produto 2 <input type="hidden" name="produto" value="2"></div>
+            <div class="produto thumbnail" data-id="3">Produto 3 <input type="hidden" name="produto" value="3"></div>
+            <div class="produto thumbnail" data-id="4">Produto 4 <input type="hidden" name="produto" value="4"></div>
+            <div class="produto thumbnail" data-id="5">Produto 5 <input type="hidden" name="produto" value="5"></div>
+          </div>
+          <div class="col-sm-6">
+            <h3>Cesta de Compras</h3>
+            Arraste seus itens para cá.
+            <div class="well" style="height: 200px" id="cesta-compras">
+              
+            </div>
+          </div>
+        </div>
+        <input type="submit" value="Comprar">
+      </form>
+      
+      <hr>
+      
       <div>
         <a href="#adicionar" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i> Adicionar Novo Contato</a>
         <a href="#atualizar" class="btn btn-primary"><i class="glyphicon glyphicon-refresh"></i> Atualizar Listagem</a>

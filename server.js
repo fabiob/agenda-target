@@ -12,9 +12,19 @@ router.use(express.static(path.resolve(__dirname, 'bower_components')));
 router.use(express.static(path.resolve(__dirname, 'client')));
 router.use(express.logger('short'));
 router.use(express.bodyParser());
+
+router.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH');
+  
+  next();
+});
+
 router.use(router.router);
 
 var contatos = require('./contatos');
+
+router.options('*', function(req, res) { res.send(200) })
 
 router.get('/contatos', function(req, res) {
   res.json(contatos.lista());
