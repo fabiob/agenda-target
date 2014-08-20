@@ -4,10 +4,8 @@ var URL_BASE = 'https://agenda-target-c9-fabiob.c9.io';
 
 function carregaLista(callback) {
   $.getJSON(URL_BASE + '/contatos', function(dados) {
-    console.log("recebemos os dados", dados);
     callback(dados);
   });
-  console.log("enviamos a requisicao");
 }
 
 function carregaContato(id, callback) {

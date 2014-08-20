@@ -18,6 +18,19 @@
   </head>
   <body>
     <div id="menu" data-title="Agenda"></div>
+    
+    <script id="linha-agenda" type="text/x-jsrender">
+      <tr data-id="{{:id}}" data-v="{{:v}}">
+        <td>{{> nome}}</td>
+        <td>{{> email}}</td>
+        <td>{{> telefone}}</td>
+        <td>
+          <a href="#editar" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-pencil"></i> Editar</a>
+          <a href="#remover" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i> Excluir</a>
+        </td>
+      </tr>
+    </script>
+
 
     <div class="container">
       <div class="page-header">

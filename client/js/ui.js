@@ -5,6 +5,7 @@ $(document).ready(function() {
   
   // ao carregar o documento, monta a tabela inicial
   atualizaLista(true);
+  setInterval(atualizaLista, 1500);
   
   
   // $('body').on('novo-elemento-ajax', function() {
@@ -151,6 +152,8 @@ function atualizaLista(primeiraVez) {
     }
     var v = new Date().getTime().toString();
     $.each(dados, function(i, registro) {
+      registro.v = v;
+      
       // procura um TR com data-id igual ao do registro
       var tr = alvo.find('tr[data-id=' + registro.id + ']');
       if (tr.length > 0) {
@@ -169,22 +172,33 @@ function atualizaLista(primeiraVez) {
       else {
         // não existe, cria
         console.log('criando', registro);
-        tr = $('<tr>', { 'data-id': registro.id, 'data-v': v });
-        tr.append($('<td>', { text: registro.nome }));
-        tr.append($('<td>', { text: registro.email }));
-        tr.append($('<td>', { text: registro.telefone }));
         
-        var acoes = $('<td>');
-        acoes.append('<a href="#editar" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-pencil"></i> Editar</a> ');
-        acoes.append('<a href="#remover" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i> Excluir</a> ');
-        tr.append(acoes);
+        // criação do TR com jQuery puro:
+        // tr = $('<tr>', { 'data-id': registro.id, 'data-v': v });
+        // tr.append($('<td>', { text: registro.nome }));
+        // tr.append($('<td>', { text: registro.email }));
+        // tr.append($('<td>', { text: registro.telefone }));
+        
+        // var acoes = $('<td>');
+        // acoes.append('<a href="#editar" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-pencil"></i> Editar</a> ');
+        // acoes.append('<a href="#remover" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i> Excluir</a> ');
+        // tr.append(acoes);
+        // alvo.append(tr);
+        
+        // criação com JsRender
+        var template = $.templates("#linha-agenda");
+        tr = $(template.render(registro));
         alvo.append(tr);
+
         if (!primeiraVez)
           tr.find('td').addClass('success').removeClass('success', 5000);
       }
       
     });
     
-    alvo.find('tr[data-v!=' + v + ']').fadeOut(1000, function() { $(this).remove(); });
+    alvo.find("tr").each(function() {
+      if ($(this).data('v') != v)
+        $(this).addClass('danger').fadeOut(2500, function() { $(this).remove(); });
+    })
   });
 }
