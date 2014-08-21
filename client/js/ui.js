@@ -130,7 +130,7 @@ function montaMenu() {
   var menu = $('#menu');
   menu.load('menu.html', function() {
     $(this).find('.navbar-brand').text(menu.data('title'));
-    $(this).find("a[href$='" + location.pathname + "']").addClass('active');
+    $(this).find("a[href$='" + location.pathname + "']").closest('li').addClass('active');
   });
 }
 
@@ -187,7 +187,7 @@ function atualizaLista(primeiraVez) {
         
         // criação com JsRender
         var template = $.templates("#linha-agenda");
-        tr = $(template.render(registro));
+        tr = $(template.render({ reg: registro }));
         alvo.append(tr);
 
         if (!primeiraVez)
